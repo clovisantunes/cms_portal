@@ -1,0 +1,291 @@
+@import '../../styles/theme.scss';
+.page {
+  min-height: 100vh;
+  background: $color-primary-light;
+  padding: 0;
+}
+
+.container {
+  background: $color-white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  padding: 48px 24px 24px;
+  text-align: center;
+  border-bottom: 1px solid #f1f5f9;
+
+  .iconContainer {
+    margin-bottom: 16px;
+    
+    .icon {
+      color: $color-bg-button;
+      background: $color-focus-ring;
+      padding: 16px;
+      border-radius: 50%;
+    }
+  }
+
+  h1 {
+    color: $color-title-text;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-family: $font-secondary;
+    font-size: 24px;
+  }
+
+  p {
+    color: $color-subtitle-text;
+    margin: 0;
+    font-size: 16px;
+    font-family: $font-secondary;
+  }
+}
+
+.form {
+  padding: 32px 24px;
+  flex: 1;
+}
+
+.campoGrupo {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: $color-title-text;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: $font-secondary;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: $border-radius-sm;
+  font-size: 16px;
+  transition: all $transition-fast;
+  background: $color-white;
+  font-family: $font-secondary;
+  padding-right: 50px;
+  
+  &:focus {
+    outline: none;
+    border-color: $color-bg-button;
+    box-shadow: 0 0 0 3px $color-focus-ring;
+  }
+
+  &::placeholder {
+    color: $color-text-light;
+  }
+}
+
+.inputErro {
+  border-color: #ef4444;
+  
+  &:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  }
+}
+
+.botaoMostrarSenha {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: $color-text-light;
+  border-radius: 4px;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: $color-title-text;
+    background: $color-primary-light;
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $color-focus-ring;
+  }
+}
+
+.textoAjuda {
+  color: $color-text-light;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+.mensagemValidacao {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mensagemErro {
+  color: #ef4444;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mensagemSucesso {
+  color: $color-success;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.botao {
+  width: 100%;
+  padding: 18px 24px;
+  border: none;
+  border-radius: $border-radius-sm;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-family: $font-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.botaoPrimario {
+  background-color: $color-bg-button;
+  color: $color-white;
+
+  &:hover:not(.botaoDesabilitado) {
+    background-color: $color-button-hover;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $color-focus-ring;
+  }
+}
+
+.botaoDesabilitado {
+  opacity: 0.5;
+  cursor: not-allowed;
+  
+  &:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.loadingSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid $color-white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dicasSeguranca {
+  background: $color-primary-light;
+  padding: 24px;
+  border-top: 1px solid #f1f5f9;
+
+  h3 {
+    color: $color-title-text;
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: $font-secondary;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    color: $color-card-text;
+    font-size: 14px;
+    font-family: $font-secondary;
+    
+    li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    max-width: 440px;
+    min-height: auto;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    overflow: hidden;
+  }
+
+  .header {
+    padding: 40px 40px 24px;
+    
+    h1 {
+      font-size: 28px;
+    }
+  }
+
+  .form {
+    padding: 40px;
+  }
+
+  .dicasSeguranca {
+    padding: 32px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao,
+  .input,
+  .botaoMostrarSenha {
+    transition: none;
+  }
+  
+  .loadingSpinner {
+    animation: none;
+  }
+}
+@supports (-webkit-touch-callout: none) {
+  .input {
+    font-size: 16px;
+  }
+}

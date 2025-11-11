@@ -1,0 +1,247 @@
+// pages/styles.module.scss
+@import '../../styles/theme.scss';
+
+// ===== MOBILE FIRST =====
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $color-primary-light;
+  position: relative;
+}
+
+.backgroundSection {
+  flex: 0 0 50vh;
+  background: 
+    linear-gradient(135deg, rgba($color-bg-button, 0.15) 0%, rgba($color-primary-medical, 0.1) 100%),
+    url('../../assets/banner-internal\ 1.png') center/cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, $color-primary-light);
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba($color-white, 0.3) 0%, transparent 50%);
+  }
+}
+
+.backgroundContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 40px;
+  
+  .welcomeText {
+    color: $color-white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    h2 {
+      font-size: $font-size-text-xl;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      font-size: $font-size-text-md;
+      opacity: 0.9;
+    }
+  }
+}
+
+.sidebarContainer {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 3;
+  margin-top: -80px; // Sobreposição mais pronunciada
+}
+
+// ===== TABLET =====
+@media (min-width: $breakpoint-mobile) {
+  .container {
+    background: linear-gradient(135deg, $color-primary-light 0%, $color-gradient-medical 100%);
+  }
+  
+  .backgroundSection {
+    flex: 0 0 55vh;
+    
+    &::before {
+      height: 100px;
+    }
+    
+    .backgroundContent {
+      margin-bottom: 60px;
+      
+      .welcomeText {
+        h2 {
+          font-size: $font-size-banner-subtitle;
+        }
+        
+        p {
+          font-size: $font-size-text-lg;
+        }
+      }
+    }
+  }
+  
+  .sidebarContainer {
+    margin-top: -100px;
+    padding: 0 40px;
+  }
+}
+
+// ===== DESKTOP =====
+@media (min-width: $breakpoint-tablet) {
+  .container {
+    flex-direction: row;
+    background: $color-primary-light;
+    overflow: hidden;
+  }
+  
+  .backgroundSection {
+    flex: 1;
+    height: 100vh;
+    background: 
+      linear-gradient(135deg, rgba($color-bg-button, 0.08) 0%, rgba($color-primary-medical, 0.05) 100%),
+      url('../../assets/banner-internal\ 1.png') center/cover;
+    align-items: center;
+    justify-content: flex-start;
+    
+    &::before {
+      display: none;
+    }
+    
+    &::after {
+      background: linear-gradient(90deg, rgba($color-white, 0.4) 0%, transparent 30%);
+    }
+  }
+  
+  .backgroundContent {
+    margin-left: 15%;
+    margin-bottom: 0;
+    text-align: left;
+    max-width: 500px;
+    
+    .welcomeText {
+      color: $color-text-dark;
+      text-shadow: none;
+      
+      h2 {
+        font-size: $font-size-banner-title;
+        color: $color-bg-button;
+        margin-bottom: 16px;
+      }
+      
+      p {
+        font-size: $font-size-text-xl;
+        color: $color-text;
+        opacity: 0.8;
+        line-height: 1.6;
+      }
+    }
+  }
+  
+  .sidebarContainer {
+    flex: 0 0 480px;
+    margin-top: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $color-primary-light;
+      z-index: -1;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .sidebarContainer {
+    flex: 0 0 520px;
+  }
+  .backgroundSection {
+    background: url('../../assets/minhasaude.jpg');
+    background-size: cover;
+  }
+  .backgroundContent {
+    margin-left: 20%;
+    
+    .welcomeText {
+      h2 {
+        font-size: 3rem;
+      }
+      
+      p {
+        font-size: $font-size-subtitle;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .backgroundSection {
+    flex: 0 0 45vh;
+    
+    &::before {
+      height: 60px;
+    }
+  }
+  
+  .sidebarContainer {
+    margin-top: -60px;
+    padding: 0 15px;
+  }
+  
+  .backgroundContent {
+    margin-bottom: 30px;
+    
+    .welcomeText {
+      h2 {
+        font-size: $font-size-text-lg;
+      }
+      
+      p {
+        font-size: $font-size-text-sm;
+      }
+    }
+  }
+}
+
+@media (min-height: 800px) and (max-width: $breakpoint-tablet) {
+  .backgroundSection {
+    flex: 0 0 40vh;
+  }
+  
+  .sidebarContainer {
+    margin-top: -70px;
+  }
+}

@@ -1,0 +1,324 @@
+@import '../../styles/theme.scss';
+
+.formularioAgendamento {
+  background: $color-white;
+  padding: 24px;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  border: 1px solid #f1f5f9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.campoGrupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  label {
+    font-weight: 600;
+    color: $color-title-text;
+    font-size: 14px;
+    font-family: $font-secondary;
+  }
+}
+
+.textoAjuda {
+  color: $color-text-light;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.botaoPrimario {
+  background-color: $color-bg-button !important;
+  color: $color-white !important;
+  border-color: $color-bg-button !important;
+  padding: 12px 24px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+
+  &:hover:not(.botaoDesabilitado) {
+    background-color: $color-button-hover !important;
+    border-color: $color-button-hover !important;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.botaoDesabilitado {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  
+  &:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Resultados da Pesquisa
+.resultadosAgendamento {
+  background: $color-white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+}
+
+.cabecalhoResultados {
+  background: linear-gradient(135deg, $color-gradient-start 0%, $color-gradient-end 100%);
+  padding: 24px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.botaoVoltar {
+  background: $color-white;
+  border: 2px solid $color-bg-button;
+  color: $color-bg-button;
+  padding: 10px 16px;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all $transition-fast;
+  font-family: $font-secondary;
+  font-weight: 500;
+  margin-bottom: 16px;
+
+  &:hover {
+    background-color: $color-bg-button;
+    color: $color-white;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.infoPesquisa {
+  h2 {
+    color: $color-title-text;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    font-family: $font-secondary;
+  }
+
+  p {
+    color: $color-card-text;
+    margin: 4px 0;
+    font-family: $font-secondary;
+  }
+}
+
+.textoInfo {
+  background: $color-white;
+  padding: 12px 16px;
+  border-radius: $border-radius-sm;
+  border-left: 4px solid $color-bg-button;
+  margin-top: 12px !important;
+  font-size: 14px;
+}
+
+// Lista de Médicos
+.listaMedicos {
+  padding: 0;
+}
+
+.cardMedico {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 24px;
+  transition: background-color $transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}
+
+.infoMedico {
+  margin-bottom: 16px;
+
+  .nomeMedico {
+    color: $color-title-text;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: $font-secondary;
+  }
+
+  .enderecoMedico {
+    color: $color-card-text;
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-family: $font-secondary;
+  }
+
+  .proximoHorario {
+    color: $color-bg-button;
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: $font-secondary;
+  }
+}
+
+.horarios {
+  .listaHorarios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+.itemHorario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: $color-white;
+  border: 1px solid #e5e7eb;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-bg-button;
+    box-shadow: $shadow-sm;
+  }
+
+  .horario {
+    color: $color-title-text;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: $font-secondary;
+  }
+}
+
+.botaoAgendar {
+  background-color: $color-bg-button;
+  color: $color-white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: $font-secondary;
+  transition: all $transition-fast;
+  min-width: 80px;
+
+  &:hover {
+    background-color: $color-button-hover;
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.botaoMaisHorarios {
+  background: none;
+  border: 1px solid $color-bg-button;
+  color: $color-bg-button;
+  padding: 8px 16px;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: $font-secondary;
+  transition: all $transition-fast;
+  width: 100%;
+
+  &:hover {
+    background-color: $color-bg-button;
+    color: $color-white;
+  }
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .formularioAgendamento {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 20px 16px;
+  }
+
+  .resultadosAgendamento {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .cabecalhoResultados {
+    padding: 20px 16px;
+  }
+
+  .cardMedico {
+    padding: 20px 16px;
+  }
+
+  .itemHorario {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .botaoAgendar {
+    width: 100%;
+  }
+
+  .botaoVoltar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .infoPesquisa {
+    h2 {
+      font-size: 20px;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .nomeMedico {
+    font-size: 16px !important;
+  }
+
+  .enderecoMedico {
+    font-size: 13px !important;
+  }
+
+  .proximoHorario {
+    font-size: 13px !important;
+  }
+}
+
+// Animações
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardMedico {
+  animation: slideIn 0.3s ease-out;
+}
+
+// Estados de foco
+.botaoAgendar:focus,
+.botaoMaisHorarios:focus,
+.botaoVoltar:focus,
+.botaoPrimario:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px $color-focus-ring;
+}

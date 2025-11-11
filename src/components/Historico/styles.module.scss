@@ -1,0 +1,518 @@
+@import '../../styles/theme.scss';
+
+.page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: $color-primary-light;
+  min-height: 100vh;
+  font-family: $font-primary;
+}
+
+h1 {
+  color: $color-title-text;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+p {
+  color: $color-subtitle-text;
+  margin-bottom: 24px;
+}
+
+.filtros {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  align-items: end;
+  background: $color-white;
+  padding: 20px;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  border: 1px solid #f1f5f9;
+}
+
+.filtroGrupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filtroGrupo label {
+  font-weight: 600;
+  color: $color-title-text;
+  font-size: 14px;
+  font-family: $font-secondary;
+}
+
+.select, .input {
+  padding: 10px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: $border-radius-sm;
+  font-size: 14px;
+  min-width: 200px;
+  transition: all $transition-fast;
+  background: $color-white;
+  font-family: $font-secondary;
+
+  &:focus {
+    outline: none;
+    border-color: $color-bg-button;
+    box-shadow: 0 0 0 3px $color-focus-ring;
+  }
+}
+
+.botao {
+  padding: 10px 16px;
+  background-color: $color-white;
+  border: 2px solid #e5e7eb;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all $transition-fast;
+  white-space: nowrap;
+  font-family: $font-secondary;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: $color-bg-button;
+    color: $color-hover-text;
+  }
+
+  &.ativo {
+    background-color: $color-bg-button;
+    color: $color-white;
+    border-color: $color-bg-button;
+    
+    &:hover {
+      background-color: $color-button-hover;
+      border-color: $color-button-hover;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      background-color: $color-white;
+      border-color: #e5e7eb;
+      color: inherit;
+    }
+  }
+}
+
+.mensagemAviso {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: $color-white;
+  border: 2px dashed #e5e7eb;
+  border-radius: $border-radius-md;
+  margin: 20px 0;
+  box-shadow: $shadow-sm;
+}
+
+.mensagemAviso p {
+  color: $color-text-light;
+  font-size: 16px;
+  margin: 0;
+}
+
+.botaoVoltarContainer {
+  margin-bottom: 20px;
+}
+
+.botaoVoltar {
+  background: $color-white;
+  border: 2px solid $color-bg-button;
+  color: $color-bg-button;
+  padding: 10px 16px;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all $transition-fast;
+  font-family: $font-secondary;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $color-bg-button;
+    color: $color-white;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.listaConsultas {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.consultaCard {
+  border: 1px solid #e5e7eb;
+  border-radius: $border-radius-md;
+  padding: 24px;
+  background-color: $color-white;
+  box-shadow: $shadow-sm;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+    border-color: $color-focus-ring;
+  }
+}
+
+.consultaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.consultaHeader h3 {
+  color: $color-title-text;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: $font-secondary;
+}
+
+.ordem {
+  background-color: $color-primary-light;
+  padding: 6px 12px;
+  border-radius: $border-radius-sm;
+  font-size: 14px;
+  color: $color-text-light;
+  font-weight: 500;
+  font-family: $font-secondary;
+}
+
+.consultaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.infoItem {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.infoItem strong {
+  color: $color-title-text;
+  min-width: 140px;
+  font-weight: 600;
+  font-family: $font-secondary;
+}
+
+.procedimentos {
+  margin-bottom: 20px;
+}
+
+.procedimentos strong {
+  color: $color-title-text;
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-family: $font-secondary;
+}
+
+.listaProcedimentos {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.listaProcedimentos li {
+  padding: 6px 0;
+  color: $color-card-text;
+  position: relative;
+  padding-left: 20px;
+  font-family: $font-secondary;
+
+  &::before {
+    content: '•';
+    color: $color-bg-button;
+    position: absolute;
+    left: 8px;
+    font-weight: bold;
+  }
+}
+
+.botaoVerMais {
+  background: none;
+  border: none;
+  color: $color-link-text;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 0;
+  text-decoration: underline;
+  font-family: $font-secondary;
+  font-weight: 500;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-hover-text;
+  }
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+}
+
+.botaoAcao {
+  padding: 10px 20px;
+  background-color: $color-white;
+  color: $color-bg-button;
+  border: 2px solid $color-bg-button;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all $transition-fast;
+  font-family: $font-secondary;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $color-bg-button;
+    color: $color-white;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.tabelaFatura {
+  background: $color-white;
+  border-radius: $border-radius-md;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+}
+
+.tabelaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, $color-gradient-start 0%, $color-gradient-end 100%);
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.tabelaHeader h2 {
+  margin: 0;
+  color: $color-title-text;
+  font-weight: 600;
+  font-family: $font-secondary;
+}
+
+.total {
+  font-size: 16px;
+  color: $color-title-text;
+  font-weight: 600;
+  font-family: $font-secondary;
+}
+
+.totalValor {
+  color: $color-success;
+  font-weight: bold;
+}
+
+.tabelaContainer {
+  overflow-x: auto;
+  background: $color-white;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-family: $font-secondary;
+}
+
+.tabela th {
+  background-color: $color-title-text;
+  color: $color-white;
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  font-family: $font-secondary;
+}
+
+.tabela td {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: $color-card-text;
+  font-size: 14px;
+}
+
+.tabela tbody tr {
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+
+  &:last-child td {
+    border-bottom: none;
+  }
+}
+
+.procedimentoCell {
+  max-width: 300px;
+  
+  span {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.valorCell {
+  font-weight: 600;
+  text-align: right;
+  color: $color-title-text;
+  font-family: $font-secondary;
+}
+
+.vencimentoAberto {
+  color: $color-bg-button;
+  font-weight: 600;
+  padding: 6px 12px;
+  background-color: $color-error-light;
+  border-radius: $border-radius-sm;
+  font-size: 12px;
+  font-family: $font-secondary;
+}
+
+.vencimentoPago {
+  color: $color-success;
+  font-weight: 600;
+  padding: 6px 12px;
+  background-color: $color-success-light;
+  border-radius: $border-radius-sm;
+  font-size: 12px;
+  font-family: $font-secondary;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 48px 16px 16px 16px;
+  }
+
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .select, .input {
+    min-width: auto;
+  }
+
+  .consultaHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .infoItem strong {
+    min-width: auto;
+  }
+
+  .acoes {
+    flex-direction: column;
+  }
+
+  .botaoAcao {
+    text-align: center;
+    width: 100%;
+  }
+
+  .tabelaHeader {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  .procedimentoCell {
+    max-width: 150px;
+  }
+
+  .botaoVoltar {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.consultaCard,
+.tabelaFatura {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.botao:focus,
+.select:focus,
+.input:focus,
+.botaoAcao:focus,
+.botaoVoltar:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px $color-focus-ring;
+}
+
+.botao:disabled {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid $color-text-light;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

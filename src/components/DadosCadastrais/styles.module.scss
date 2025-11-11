@@ -1,0 +1,427 @@
+@import '../../styles/theme.scss';
+
+.page {
+  min-height: 100vh;
+  background: $color-primary-light;
+  padding: 0;
+}
+
+// Header para mobile (quando menu lateral está fechado)
+.mobileHeader {
+  padding: 20px 20px 20px;
+  border-bottom: 1px solid $color-primary-bg-black;
+  background: $color-primary-bg;
+  
+  h1 {
+    font-size: 1.5rem;
+    color: $color-title-text;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+    font-family: $font-primary;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    color: $color-subtitle-text;
+    margin: 0;
+    font-family: $font-secondary;
+  }
+}
+
+// Container da lista
+.listaContainer {
+  padding: 20px 16px;
+  width: 100%;
+}
+
+.listaDependentes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+// Card principal
+.dependenteItem {
+  background: $color-primary-bg;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.dependenteCard {
+  padding: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+// Avatar e informações básicas
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: $color-white;
+  flex-shrink: 0;
+  
+  &.titular {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+  }
+  
+  &.dependente {
+    background: linear-gradient(135deg, #059669, #047857);
+  }
+}
+
+.infoBasica {
+  flex: 1;
+  min-width: 0;
+}
+
+.nome {
+  font-size: 1rem;
+  color: $color-title-text;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  font-family: $font-primary;
+  line-height: 1.3;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.badgeTipo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $color-subtitle-text;
+  font-family: $font-primary;
+}
+
+// Contrato e ações
+.contratoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.contrato {
+  font-size: 0.75rem;
+  color: $color-subtitle-text;
+  font-family: $font-secondary;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chevron {
+  color: $color-subtitle-text;
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+// Detalhes accordion
+.detalhesAccordion {
+  background: rgba(0, 0, 0, 0.02);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.detalhesContent {
+  padding: 20px;
+}
+
+.infoSection {
+  margin-bottom: 24px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  h4 {
+    font-size: 0.875rem;
+    color: $color-subtitle-text;
+    font-weight: 600;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 16px 0;
+  }
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+}
+
+.infoIcon {
+  color: $color-bg-button;
+  font-size: 1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.infoText {
+  flex: 1;
+  
+  label {
+    display: block;
+    font-size: 0.75rem;
+    color: $color-subtitle-text;
+    font-weight: 600;
+    font-family: $font-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  
+  span {
+    display: block;
+    font-size: 0.875rem;
+    color: $color-card-text;
+    font-family: $font-secondary;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  
+  .plano {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+}
+
+// ===== MOBILE COM MENU LATERAL =====
+@media (max-width: 768px) {
+  .page {
+    // O menu lateral mobile é fixed, então precisamos de padding
+    padding-top: 60px; // Altura do header mobile do menu lateral
+  }
+
+  .mobileHeader {
+    padding: 20px 16px;
+    
+    h1 {
+      font-size: 1.375rem;
+    }
+  }
+
+  .listaContainer {
+    padding: 20px 16px;
+  }
+}
+
+// ===== DESKTOP COM MENU LATERAL =====
+@media (min-width: 769px) {
+  .page {
+    // O menu lateral desktop tem 280px quando aberto, 80px quando fechado
+    transition: margin-left 0.3s ease;
+    
+    // Quando menu lateral está fechado
+    .sidebarClosed & {
+      margin-left: 80px;
+    }
+  }
+
+  .mobileHeader {
+    padding: 40px 40px 20px;
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .listaContainer {
+    padding: 20px 40px 40px;
+    max-width: 800px;
+  }
+
+  .listaDependentes {
+    max-width: none;
+    gap: 16px;
+  }
+
+  .dependenteItem {
+    border-radius: 20px;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  .dependenteCard {
+    padding: 24px;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.02);
+    }
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nome {
+    font-size: 1.125rem;
+  }
+
+  .infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .infoItem {
+    padding: 16px;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+// ===== DESKTOP GRANDE =====
+@media (min-width: 1200px) {
+  .listaContainer {
+    max-width: 1000px;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dependenteCard {
+    padding: 28px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 1.5rem;
+  }
+
+  .nome {
+    font-size: 1.25rem;
+  }
+}
+
+// ===== MOBILE PEQUENO =====
+@media (max-width: 360px) {
+  .page {
+    padding-top: 60px;
+  }
+
+  .mobileHeader {
+    padding: 16px;
+    
+    h1 {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .listaContainer {
+    padding: 16px 12px;
+  }
+  
+  .dependenteCard {
+    padding: 16px;
+  }
+  
+  .avatarSection {
+    gap: 12px;
+  }
+  
+  .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 1.125rem;
+  }
+  
+  .nome {
+    font-size: 0.9rem;
+  }
+  
+  .cardContent {
+    gap: 12px;
+  }
+}
+
+// ===== ACESSIBILIDADE =====
+@media (prefers-reduced-motion: reduce) {
+  .dependenteItem,
+  .detalhesAccordion,
+  .infoItem {
+    transition: none;
+    animation: none;
+  }
+}
