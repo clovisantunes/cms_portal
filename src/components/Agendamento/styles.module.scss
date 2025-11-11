@@ -1,5 +1,8 @@
 @import '../../styles/theme.scss';
 
+.page{
+  margin-top: 14%;
+}
 .formularioAgendamento {
   background: $color-white;
   padding: 24px;
@@ -57,7 +60,6 @@
   }
 }
 
-// Resultados da Pesquisa
 .resultadosAgendamento {
   background: $color-white;
   border-radius: $border-radius-md;
@@ -117,7 +119,6 @@
   font-size: 14px;
 }
 
-// Lista de Médicos
 .listaMedicos {
   padding: 0;
 }
@@ -234,7 +235,6 @@
   }
 }
 
-// Responsividade
 @media (max-width: 768px) {
   .formularioAgendamento {
     margin: 0;
@@ -298,7 +298,6 @@
   }
 }
 
-// Animações
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -314,7 +313,6 @@
   animation: slideIn 0.3s ease-out;
 }
 
-// Estados de foco
 .botaoAgendar:focus,
 .botaoMaisHorarios:focus,
 .botaoVoltar:focus,
